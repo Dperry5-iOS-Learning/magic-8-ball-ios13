@@ -12,7 +12,21 @@ class ViewController: UIViewController {
     
     let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
 
-
-
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?)
+    {
+        self.updateImage()
+    }
+    
+    func updateImage() {
+        let randomInt = Int.random(in: 0..<5)
+        imageView.image = ballArray[randomInt]
+    }
+    
+    @IBAction func askButtonPressed(_ sender: Any) {
+        self.updateImage()
+    }
+    
 }
 
